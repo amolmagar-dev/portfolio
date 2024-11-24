@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Terminal, User, Mail, Code, Folder, ChevronRight, Circle, Github, Linkedin, Twitter, GitBranch, Bug, Check, Wifi, Palette } from 'lucide-react';
 import Home from './pages/Home';
+import About from './pages/AboutMe';
+import Contact from './pages/Contact';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -26,13 +28,91 @@ const App = () => {
       highlightText: 'text-[#ff79c6]',
       menuBg: 'bg-[#21222c]',
       menuHover: 'hover:bg-[#2d2f3b]'
+    },
+    atomOneDark: {
+      name: 'Atom One Dark',
+      bg: 'bg-[#282c34]',
+      sidebar: 'bg-[#21252b]',
+      explorer: 'bg-[#21252b]',
+      accent: 'border-[#528bff]',
+      statusBar: 'bg-[#1d1f23]',
+      statusBarHover: 'bg-[#2c313a]',
+      text: 'text-[#abb2bf]',
+      activeText: 'text-[#d7dae0]',
+      secondaryText: 'text-[#6b717d]',
+      border: 'border-[#181a1f]',
+      tabActive: 'bg-[#282c34]',
+      tabInactive: 'text-[#6b717d]',
+      tabBg: 'bg-[#1d1f23]',
+      highlightText: 'text-[#528bff]',
+      menuBg: 'bg-[#21252b]',
+      menuHover: 'hover:bg-[#2c313a]'
+    },
+    tokyoNight: {
+      name: 'Tokyo Night',
+      bg: 'bg-[#1a1b26]',
+      sidebar: 'bg-[#16161e]',
+      explorer: 'bg-[#16161e]',
+      accent: 'border-[#7aa2f7]',
+      statusBar: 'bg-[#15161e]',
+      statusBarHover: 'bg-[#1c1d2c]',
+      text: 'text-[#a9b1d6]',
+      activeText: 'text-[#c0caf5]',
+      secondaryText: 'text-[#565f89]',
+      border: 'border-[#101014]',
+      tabActive: 'bg-[#1a1b26]',
+      tabInactive: 'text-[#565f89]',
+      tabBg: 'bg-[#15161e]',
+      highlightText: 'text-[#7aa2f7]',
+      menuBg: 'bg-[#16161e]',
+      menuHover: 'hover:bg-[#1c1d2c]'
+    },
+    githubDark: {
+      name: 'GitHub Dark',
+      bg: 'bg-[#0d1117]',
+      sidebar: 'bg-[#090c10]',
+      explorer: 'bg-[#090c10]',
+      accent: 'border-[#58a6ff]',
+      statusBar: 'bg-[#090c10]',
+      statusBarHover: 'bg-[#1f2428]',
+      text: 'text-[#c9d1d9]',
+      activeText: 'text-[#ffffff]',
+      secondaryText: 'text-[#8b949e]',
+      border: 'border-[#30363d]',
+      tabActive: 'bg-[#0d1117]',
+      tabInactive: 'text-[#8b949e]',
+      tabBg: 'bg-[#090c10]',
+      highlightText: 'text-[#58a6ff]',
+      menuBg: 'bg-[#090c10]',
+      menuHover: 'hover:bg-[#1f2428]'
+    },
+    moonlight: {
+      name: 'Moonlight',
+      bg: 'bg-[#1e2030]',
+      sidebar: 'bg-[#191a2a]',
+      explorer: 'bg-[#191a2a]',
+      accent: 'border-[#82aaff]',
+      statusBar: 'bg-[#171722]',
+      statusBarHover: 'bg-[#2f334d]',
+      text: 'text-[#c8d3f5]',
+      activeText: 'text-[#ffffff]',
+      secondaryText: 'text-[#7a88cf]',
+      border: 'border-[#171722]',
+      tabActive: 'bg-[#1e2030]',
+      tabInactive: 'text-[#7a88cf]',
+      tabBg: 'bg-[#171722]',
+      highlightText: 'text-[#82aaff]',
+      menuBg: 'bg-[#191a2a]',
+      menuHover: 'hover:bg-[#2f334d]'
     }
   };
 
   const theme = themes[currentTheme];
 
   const tabs = [
-    { id: 'home', name: 'home.jsx', icon: <Code size={16} /> }
+    { id: 'home', name: 'home.jsx', icon: <Code size={16} /> },
+    { id: 'about', name: 'about.jsx', icon: <User size={16} /> },
+    { id: 'contact', name: 'contact.jsx', icon: <Mail size={16} /> }
   ];
 
   const ThemeSelector = () => (
@@ -70,6 +150,14 @@ const App = () => {
       case 'home':
         return (
           <Home theme={theme} />
+        );
+      case 'about':
+        return (
+          <About theme={theme} />
+        );
+      case 'contact':
+        return (
+          <Contact theme={theme} />
         );
       default:
         return null;
