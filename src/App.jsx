@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, User, Mail, Code, Folder, ChevronRight, Circle, Github, Linkedin, Twitter, GitBranch, Bug, Check, Wifi, Palette } from 'lucide-react';
+import { Terminal, User, Mail, Code, Folder, ChevronRight, Circle, Github, Linkedin, Twitter, GitBranch, Bug, Palette } from 'lucide-react';
 import Home from './pages/Home';
 import About from './pages/AboutMe';
 import Contact from './pages/Contact';
@@ -121,8 +121,8 @@ const App = () => {
         className={`flex items-center px-2 h-6 ${theme.menuHover}`}
         onClick={() => setShowThemeMenu(!showThemeMenu)}
       >
-        <Palette size={14} className="mr-1" />
-        <span className="text-xs">Theme</span>
+        <Palette size={14} className={`mr-1 ${theme.text}`}/>
+        <span className={`text-xs  ${theme.text}`}>Theme</span>
       </button>
 
       {showThemeMenu && (
@@ -247,11 +247,11 @@ const App = () => {
       <div className={`h-6 ${theme.statusBar} flex items-center justify-between`}>
         <div className="flex items-center h-full">
           <div className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-            <GitBranch size={14} className="mr-1" />
+            <GitBranch size={14} className={`mr-1 ${theme.text}`} />
             <span className={`text-xs ${theme.text}`}>main</span>
           </div>
           <div className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-            <Bug size={14} className="mr-1" />
+            <Bug size={14} className={`mr-1 ${theme.text}`} />
             <span className={`text-xs ${theme.text}`}>0</span>
           </div>
         </div>
@@ -261,7 +261,7 @@ const App = () => {
           <div className="flex h-full">
             {[Github, Linkedin, Twitter].map((Icon, index) => (
               <a key={index} className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-                <Icon size={14} />
+                <Icon size={14} className={`mr-1 ${theme.text}`} />
               </a>
             ))}
           </div>
