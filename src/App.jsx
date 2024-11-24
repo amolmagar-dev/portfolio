@@ -3,6 +3,7 @@ import { Terminal, User, Mail, Code, Folder, ChevronRight, Circle, Github, Linke
 import Home from './pages/Home';
 import About from './pages/AboutMe';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('home');
@@ -115,36 +116,6 @@ const App = () => {
     { id: 'contact', name: 'contact.jsx', icon: <Mail size={16} /> }
   ];
 
-  const ThemeSelector = () => (
-    <div className="relative">
-      <button
-        className={`flex items-center px-2 h-6 ${theme.menuHover}`}
-        onClick={() => setShowThemeMenu(!showThemeMenu)}
-      >
-        <Palette size={14} className={`mr-1 ${theme.text}`}/>
-        <span className={`text-xs  ${theme.text}`}>Theme</span>
-      </button>
-
-      {showThemeMenu && (
-        <div className={`absolute bottom-6 left-0 w-48 ${theme.menuBg} rounded-md shadow-lg border ${theme.border} z-50`}>
-          {Object.entries(themes).map(([themeId, themeData]) => (
-            <button
-              key={themeId}
-              className={`w-full px-4 py-2 text-left text-sm ${theme.menuHover} ${currentTheme === themeId ? theme.highlightText : theme.text
-                }`}
-              onClick={() => {
-                setCurrentTheme(themeId);
-                setShowThemeMenu(false);
-              }}
-            >
-              {themeData.name}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
@@ -244,29 +215,7 @@ const App = () => {
       </div>
 
       {/* Footer */}
-      <div className={`h-6 ${theme.statusBar} flex items-center justify-between`}>
-        <div className="flex items-center h-full">
-          <div className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-            <GitBranch size={14} className={`mr-1 ${theme.text}`} />
-            <span className={`text-xs ${theme.text}`}>main</span>
-          </div>
-          <div className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-            <Bug size={14} className={`mr-1 ${theme.text}`} />
-            <span className={`text-xs ${theme.text}`}>0</span>
-          </div>
-        </div>
-
-        <div className="flex items-center h-full">
-          <ThemeSelector />
-          <div className="flex h-full">
-            {[Github, Linkedin, Twitter].map((Icon, index) => (
-              <a key={index} className={`flex items-center px-2 h-full ${theme.menuHover}`}>
-                <Icon size={14} className={`mr-1 ${theme.text}`} />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Footer theme={theme} themes={themes} setShowThemeMenu={setShowThemeMenu} setCurrentTheme={setCurrentTheme} showThemeMenu={showThemeMenu} currentTheme={currentTheme} />
     </div>
   );
 };
